@@ -3,30 +3,6 @@ plugins {
     id 'maven-publish'
 }
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'android-pdf-viewer'
-
-    publishedGroupId = 'com.github.barteksc'
-    libraryName = 'AndroidPdfViewer'
-    artifact = 'android-pdf-viewer'
-
-    libraryDescription = 'Android view for displaying PDFs rendered with PdfiumAndroid'
-
-    siteUrl = 'https://github.com/barteksc/AndroidPdfViewerV1'
-    gitUrl = 'https://github.com/barteksc/AndroidPdfViewerV1.git'
-
-    libraryVersion = '1.6.0'
-
-    developerId = 'barteksc'
-    developerName = 'Bartosz Schiller'
-    developerEmail = 'barteksch@boo.pl'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
 android {
     namespace 'com.github.barteksc.pdfviewer'
     compileSdk 34
@@ -34,10 +10,27 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 34
+        multiDexEnabled true
     }
 
-}
+    buildFeatures {
+        buildConfig = true
+    }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        disable 'GradleDependency', 'ExpiringTargetSdkVersion'
+    }
+}
 dependencies {
     implementation 'com.github.barteksc:pdfium-android:1.5.0'
 }
