@@ -25,21 +25,16 @@ ext {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.3'
+    namespace 'com.github.barteksc.pdfviewer'
+    compileSdk 23
 
     defaultConfig {
-        minSdkVersion 11
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.6.0"
+        minSdk 11
+        targetSdk 23
     }
 
 }
 
 dependencies {
-    compile 'com.github.barteksc:pdfium-android:1.5.0'
+    implementation 'com.github.barteksc:pdfium-android:1.5.0'
 }
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
