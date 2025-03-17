@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 ext {
     bintrayRepo = 'maven'
@@ -26,11 +29,11 @@ ext {
 
 android {
     namespace 'com.github.barteksc.pdfviewer'
-    compileSdk 23
+    compileSdk 34
 
     defaultConfig {
-        minSdk 11
-        targetSdk 23
+        minSdk 19
+        targetSdk 34
     }
 
 }
