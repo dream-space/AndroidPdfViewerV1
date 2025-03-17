@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         applicationId "com.github.barteksc.sample"
-        minSdk 16
+        minSdk 21
         targetSdk 34
         versionCode 3
         versionName "1.0.2"
